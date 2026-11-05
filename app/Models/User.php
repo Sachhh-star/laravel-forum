@@ -18,6 +18,17 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    // Een administrator mag alles aanpassen, een gewone user alleen de eigen berichten
+    public function canEdit(Thread|Topic|Reply $item): bool
+    {
+        return $this->isAdmin() || $this->id === $item->user_id;
+    }
+
     public function threads() {
         return $this->hasMany(Thread::class);
     }

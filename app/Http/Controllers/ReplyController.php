@@ -23,4 +23,31 @@ class ReplyController extends Controller
 
         return redirect()->route('topics.show', [$thread, $topic]);
     }
+
+    public function edit(Request $request, Thread $thread, Topic $topic, Reply $reply)
+    {
+        abort_unless($request->user()->canEdit($reply), 403);
+
+        return view('replies.edit', ['thread' => $thread, 'topic' => $topic, 'reply' => $reply]);
+    }
+
+    public function update(Request $request, Thread $thread, Topic $topic, Reply $reply)
+    {
+        abort_unless($request->user()->canEdit($reply), 403);
+
+        $validated = $request->validate([
+            'body' => ['required', 'string'],
+        ]);
+
+        $reply->update($validated);
+
+        return redirect()->route('topics.show', [$thread, $topic]);
+    }
+
+    public function destroy(Thread $thread, Topic $topic, Reply $reply)
+    {
+        $reply->delete();
+
+        return redirect()->route('topics.show', [$thread, $topic]);
+    }
 }
