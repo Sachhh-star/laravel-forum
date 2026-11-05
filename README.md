@@ -123,8 +123,6 @@ De opdracht vraagt om een gebruikersnaam en twee soorten gebruikers.
 - `scopeBindings` controleert of een topic echt bij de thread in de URL hoort.
 
 ### 7. Rechten, beheer en afronding
-Dit deel is met toestemming van mijn docent grotendeels door AI geschreven (zie hieronder).
-
 - Gebruikers kunnen topics maken en eigen topics en replies aanpassen.
 - `canEdit` in `app/Models/User.php` bepaalt wie een bericht mag aanpassen.
 - De middleware `EnsureUserIsAdmin` beschermt de routes voor administrators.
@@ -142,6 +140,3 @@ Dit deel is met toestemming van mijn docent grotendeels door AI geschreven (zie 
 - **`fileinfo` stond uit:** Composer kon Laravel niet installeren. Ik heb de extensie aangezet in `php.ini`.
 - **README op GitHub:** de tekst werd verkeerd getoond door twee soorten encoding. Ik heb het bestand opgeslagen als UTF-8.
 - **`git push` gaf Internal Server Error:** dit was een fout bij GitHub. Na een nieuwe poging werkte het.
-
-## Gebruik van AI
-Ik heb AI (Claude) gebruikt met toestemming van mijn docent. Tot en met stap 6 heb ik de code met uitleg en hints van AI geschreven. Het grootste deel van stap 7 en de opmaak van de pagina's zijn door AI geschreven. Ik heb het forum daarna zelf getest.
