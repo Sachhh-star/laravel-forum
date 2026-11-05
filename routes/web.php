@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ThreadController;
+use App\Http\Controllers\TopicController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ThreadController::class, 'index'])->name('home');
 Route::get('/threads', [ThreadController::class, 'index'])->name('threads.index');
 Route::get('/thread/{thread}', [ThreadController::class, 'show'])->name('threads.show');
+Route::get('/thread/{thread}/topic/{topic}', [TopicController::class, 'show'])->name('topics.show')->scopeBindings();
 
 Route::get('/dashboard', function () {
     return view('dashboard');

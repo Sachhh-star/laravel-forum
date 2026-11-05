@@ -5,7 +5,7 @@
 
     @foreach ($thread->topics as $topic)
     
-    <p>{{ $topic->title }} - {{ $topic->user->username }}</p>
+    <p><a href="{{ route('topics.show', [$thread, $topic]) }}">{{ $topic->title }}</a> {{ $topic->user->username }}</p>
 
     @endforeach
 </div>
