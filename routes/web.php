@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ThreadController::class, 'index'])->name('home');
 Route::get('/threads', [ThreadController::class, 'index'])->name('threads.index');
+Route::get('/thread/{thread}', [ThreadController::class, 'show'])->name('threads.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
